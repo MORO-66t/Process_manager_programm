@@ -1,6 +1,6 @@
 ##<h1>OS TASK
 
- <b>Implement a process manager that:<\b>
+ <b>Implement a process manager that:</b>
 
 <ol>. <i>List all the processes in the system.
 <ol>. List all the processes grouped by user.
