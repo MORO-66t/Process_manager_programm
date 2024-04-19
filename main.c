@@ -2,7 +2,8 @@
 
 
 
-int main()
+int main(argc,argv[])
 {
 
 }
+
