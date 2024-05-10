@@ -11,7 +11,7 @@ void listAllProcesses() {
 }
 
 void listProcessesByUser(char* input) {
-  char command[1000]; // Adjust the size as needed
+  char command[1000]; 
     snprintf(command, sizeof(command), "ps aux | awk '$1 == \"%s\"'", input);
     system(command);
 }
