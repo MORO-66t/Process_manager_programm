@@ -1,18 +1,19 @@
-#include "Header.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#include <signal.h>   
-#include <sys/types.h> 
-#include <sys/wait.h>  
+#include <signal.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 
 void listAllProcesses() {
     system("ps aux");
 }
 
-void listProcessesByUser() {
-    system("ps aux | awk '{print $1}' | sort | uniq");
+void listProcessesByUser(char* input) {
+  char command[1000]; // Adjust the size as needed
+    snprintf(command, sizeof(command), "ps aux | awk '$1 == \"%s\"'", input);
+    system(command);
 }
 
 void displayProcessID() {
@@ -20,9 +21,9 @@ void displayProcessID() {
 }
 
 void  runOrStopProcess(int pid, int action) {
-    if (action == 1) 
+    if (action == 1)
         kill(pid, SIGCONT);
-    else if (action == 0) 
+    else if (action == 0)
         kill(pid, SIGSTOP);
 }
 
@@ -50,13 +51,15 @@ void menu() {
 void choose(int choice) {
 
     int signal,pid;
-
+    char input[50]; 
     switch (choice) {
         case 1:
             listAllProcesses();
             break;
         case 2:
-            listProcessesByUser();
+            printf("Enter User to search for: ");
+            scanf("%s", input);
+            listProcessesByUser(input);
             break;
         case 3:
             displayProcessID();
@@ -71,7 +74,7 @@ void choose(int choice) {
         case 5:
             printf("Enter PID of the process: ");
             scanf("%d", &pid);
-            printf("Enter signal (e.g., 9 for SIGKILL): ");
+            printf("Enter signal (e.g. 2 for interrupt, 9 for kill, 15 for terminate, 18 for continue, 19 for stop) : ");
             scanf("%d", &signal);
             sendSignal(pid, signal);
             break;
@@ -91,4 +94,3 @@ int main()
    }
     return 0;
 }
-
