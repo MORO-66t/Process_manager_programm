@@ -1,0 +1,30 @@
+PROCESS_MANAGER(1)                          User Commands                          PROCESS_MANAGER(1)
+
+NAME
+       Process Manager 
+
+SYNOPSIS
+       Process Manager in Linux but ,in Menu Interface with 6 options , Shown in MENU OPTIONS Below
+
+DESCRIPTION
+       The process_manager utility provides a simple interactive interface to manage processes on the system. It
+       allows users to list all processes, list processes grouped by user, display process IDs, run/stop specific
+       processes, and send specific signals to processes.
+
+OPTIONS
+       There are no command-line options for process_manager. Upon execution, it presents an interactive menu.
+
+INTERACTIVE MENU
+       process_manager provides an interactive menu for users to choose options from. The menu prompts the user to
+       enter a number corresponding to the desired action.
+
+MENU OPTIONS
+       1. List all processes in the system.
+       2. List all processes grouped by user.
+       3. Display process ID of all processes.
+       4. Run/stop a specific process.
+       5. Send specific signals to specific process.
+       6. Exit the process manager.
+
+AUTHOR
+       Mazen Mohamed
